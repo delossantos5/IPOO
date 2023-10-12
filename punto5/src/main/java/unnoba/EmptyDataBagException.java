@@ -9,8 +9,12 @@ public class EmptyDataBagException extends Exception {
 
     @Override
     public String toString() {
-        return "La cantidad es" + cantidad + " por lo tanto no se pueden remover elementos de la bolsa";
+        if (cantidad==0){
+            return "DataBag no tiene elementos";
+        }
+        else{
+            return "El elemento no esta en DataBag ";
+        }
     }
-    
 
 }

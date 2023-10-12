@@ -10,8 +10,7 @@ public class DataBag {
 
     public void add(Elemento e) throws FullDataBagException{
         if (elementos.size()<capacidadMaxima)
-            if(elementos.add(e))
-            System.out.println("Se agrego un elemento a la bolsa");
+            elementos.add(e);
         else
          throw new FullDataBagException(elementos.size());    
     }

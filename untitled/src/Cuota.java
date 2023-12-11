@@ -1,15 +1,15 @@
-import java.time.LocalTime;
+import java.util.GregorianCalendar;
 
 public class Cuota implements Venta{
     private Persona cliente;
     private Auto auto;
-    private LocalTime fechaDeAlta;
+    private GregorianCalendar fechaDeAlta;
     private static final float RECARGO=0.03f;
     private int cuotas;
     private static final int MINIMO=6;
     private static final int MAXIMO=36;
 
-    public Cuota(Persona cliente, Auto auto, LocalTime fechaDeAlta, int cuotas) {
+    public Cuota(Persona cliente, Auto auto, GregorianCalendar fechaDeAlta, int cuotas) {
         this.cliente = cliente;
         this.auto = auto;
         this.fechaDeAlta = fechaDeAlta;
@@ -32,11 +32,11 @@ public class Cuota implements Venta{
         this.auto = auto;
     }
 
-    public LocalTime getFechaDeAlta() {
+    public GregorianCalendar getFechaDeAlta() {
         return fechaDeAlta;
     }
 
-    public void setFechaDeAlta(LocalTime fechaDeAlta) {
+    public void setFechaDeAlta(GregorianCalendar fechaDeAlta) {
         this.fechaDeAlta = fechaDeAlta;
     }
 
@@ -53,8 +53,10 @@ public class Cuota implements Venta{
     }
 
     @Override
-    public float montoVenta() {
-        float recargoFinal= cuotas*RECARGO;
-        return auto.getPrecioCosto()+recargoFinal;
+    public double montoVenta() {
+        double recargoPorCuotas = auto.getPrecioCosto() * cuotas * RECARGO;
+        double precioFinal = auto.getPrecioCosto() + recargoPorCuotas;
+
+        return precioFinal;
     }
 }

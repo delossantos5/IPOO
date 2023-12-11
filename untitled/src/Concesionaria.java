@@ -31,8 +31,8 @@ public class Concesionaria {
         autos.add(unAuto);
     }
 
-    public float montoTotalVentas() {
-        float total = 0;
+    public long montoTotalVentas() {
+        long total = 0;
         for (Venta unaVenta : ventas) {
             total += unaVenta.montoVenta();
         }

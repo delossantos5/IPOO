@@ -2,9 +2,9 @@ public class Auto {
     private String marca;
     private String modelo;
     private String descripcion;
-    private float precioCosto;
+    private int precioCosto;
 
-    public Auto(String marca, String modelo, String descripcion, float precioCosto) {
+    public Auto(String marca, String modelo, String descripcion, int precioCosto) {
         this.marca = marca;
         this.modelo = modelo;
         this.descripcion = descripcion;
@@ -35,11 +35,11 @@ public class Auto {
         this.descripcion = descripcion;
     }
 
-    public float getPrecioCosto() {
+    public int getPrecioCosto() {
         return precioCosto;
     }
 
-    public void setPrecioCosto(float precioCosto) {
+    public void setPrecioCosto(int precioCosto) {
         this.precioCosto = precioCosto;
     }
 }

@@ -1,12 +1,12 @@
-import java.time.LocalTime;
+import java.util.GregorianCalendar;
 
 public class Lista implements Venta{
     private Persona cliente;
     private Auto auto1;
-    private LocalTime fechaDeAlta;
+    private GregorianCalendar fechaDeAlta;
     private static final float RECARGO=0.15f;
 
-    public Lista(Persona cliente, Auto auto, LocalTime fechaDeAlta) {
+    public Lista(Persona cliente, Auto auto, GregorianCalendar fechaDeAlta) {
         this.cliente = cliente;
         this.auto1 = auto;
         this.fechaDeAlta = fechaDeAlta;
@@ -28,16 +28,17 @@ public class Lista implements Venta{
         this.auto1 = auto;
     }
 
-    public LocalTime getFechaDeAlta() {
+    public GregorianCalendar getFechaDeAlta() {
         return fechaDeAlta;
     }
 
-    public void setFechaDeAlta(LocalTime fechaDeAlta) {
+    public void setFechaDeAlta(GregorianCalendar fechaDeAlta) {
         this.fechaDeAlta = fechaDeAlta;
     }
-
     @Override
-    public float montoVenta() {
-        return auto1.getPrecioCosto() + RECARGO;
+    public double montoVenta() {
+        double recargo = auto1.getPrecioCosto() * RECARGO;
+        double precioFinal = auto1.getPrecioCosto() + recargo;
+        return precioFinal;
     }
 }
